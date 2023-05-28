@@ -54,6 +54,6 @@ namespace CV.Clases
         public DateTime FFinal { get; set; }
         public bool Trabajo { get; set; }
         public String Descripcion { get; set; }
-        public String Habiliddades { get; set; }
+        public String Habilidades { get; set; }
     }
 }
