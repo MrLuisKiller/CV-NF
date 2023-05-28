@@ -47,9 +47,9 @@ namespace CV.Forms
                         Estructura.Add(Key, new Estructura
                         {
                             Personal = new DPersonal(),
-                            Educacion = new List<DEducacion>,
-                            Experiencia = new List<DExperiencia>,
-                            Habilidades = new Dictionary<string, List<string>>
+                            Educacion = new List<DEducacion>(),
+                            Experiencia = new List<DExperiencia>(),
+                            Habilidades = new Dictionary<String, List<string>>()
                         });
                     Estructura[Key].Personal = (DPersonal)X;
                     Educacion.Enabled = Estructura.ContainsKey(Key);

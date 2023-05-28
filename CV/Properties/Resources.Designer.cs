@@ -83,6 +83,16 @@ namespace CV.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Correo {
+            get {
+                object obj = ResourceManager.GetObject("Correo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CV24 {
             get {
                 object obj = ResourceManager.GetObject("CV24", resourceCulture);
@@ -123,9 +133,69 @@ namespace CV.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Flecha {
+            get {
+                object obj = ResourceManager.GetObject("Flecha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] JetBrains_Mono_Bold_Nerd_Font_Complete {
+            get {
+                object obj = ResourceManager.GetObject("JetBrains_Mono_Bold_Nerd_Font_Complete", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] JetBrains_Mono_Italic_Nerd_Font_Complete {
+            get {
+                object obj = ResourceManager.GetObject("JetBrains_Mono_Italic_Nerd_Font_Complete", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] JetBrains_Mono_Regular_Nerd_Font_Complete {
+            get {
+                object obj = ResourceManager.GetObject("JetBrains_Mono_Regular_Nerd_Font_Complete", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mapa {
+            get {
+                object obj = ResourceManager.GetObject("Mapa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PDF24 {
             get {
                 object obj = ResourceManager.GetObject("PDF24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Telefono {
+            get {
+                object obj = ResourceManager.GetObject("Telefono", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +216,16 @@ namespace CV.Properties {
         internal static System.Drawing.Bitmap U256 {
             get {
                 object obj = ResourceManager.GetObject("U256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Web {
+            get {
+                object obj = ResourceManager.GetObject("Web", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -124,6 +124,9 @@
   <data name="calendarWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendarWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Correo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Correo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CV24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CV24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,13 +139,34 @@
   <data name="Ed16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ed16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Flecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JetBrains_Mono_Bold_Nerd_Font_Complete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JetBrains Mono Bold Nerd Font Complete.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="JetBrains_Mono_Italic_Nerd_Font_Complete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JetBrains Mono Italic Nerd Font Complete.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="JetBrains_Mono_Regular_Nerd_Font_Complete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JetBrains Mono Regular Nerd Font Complete.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Mapa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mapa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PDF24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PDF24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Telefono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Telefono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="U24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\U24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="U256" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\U256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Web" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

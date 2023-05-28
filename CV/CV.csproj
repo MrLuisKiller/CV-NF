@@ -135,6 +135,7 @@
     <Compile Include="Clases\ConvertirImagen.cs" />
     <Compile Include="Clases\JSON.cs" />
     <Compile Include="Clases\Mes.cs" />
+    <Compile Include="Clases\PDF.cs" />
     <Compile Include="Componentes\MLKButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -208,6 +209,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\JetBrains Mono Bold Nerd Font Complete.ttf" />
+    <None Include="Resources\JetBrains Mono Italic Nerd Font Complete.ttf" />
+    <None Include="Resources\JetBrains Mono Regular Nerd Font Complete.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -238,6 +242,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CV24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flecha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Telefono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Correo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mapa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Web.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
