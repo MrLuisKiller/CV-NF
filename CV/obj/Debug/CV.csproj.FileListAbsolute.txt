@@ -1,0 +1,11 @@
+D:\Programacion\Visual Studio 2022\CV\CV\obj\Debug\CV.csproj.AssemblyReference.cache
+D:\Programacion\Visual Studio 2022\CV\CV\obj\Debug\CV.csproj.SuggestedBindingRedirects.cache
+D:\Programacion\Visual Studio 2022\CV\CV\obj\Debug\CV.Properties.Resources.resources
+D:\Programacion\Visual Studio 2022\CV\CV\obj\Debug\CV.csproj.GenerateResource.cache
+D:\Programacion\Visual Studio 2022\CV\CV\obj\Debug\CV.csproj.CoreCompileInputs.cache
+D:\Programacion\Visual Studio 2022\CV\CV\bin\Debug\CV.exe.config
+D:\Programacion\Visual Studio 2022\CV\CV\bin\Debug\CV.exe
+D:\Programacion\Visual Studio 2022\CV\CV\bin\Debug\CV.pdb
+D:\Programacion\Visual Studio 2022\CV\CV\obj\Debug\CV.exe
+D:\Programacion\Visual Studio 2022\CV\CV\obj\Debug\CV.pdb
+D:\Programacion\Visual Studio 2022\CV\CV\obj\Debug\CV.Form1.resources
