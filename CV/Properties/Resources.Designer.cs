@@ -83,6 +83,16 @@ namespace CV.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CV24 {
+            get {
+                object obj = ResourceManager.GetObject("CV24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap E16 {
             get {
                 object obj = ResourceManager.GetObject("E16", resourceCulture);
@@ -93,9 +103,39 @@ namespace CV.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap E24 {
+            get {
+                object obj = ResourceManager.GetObject("E24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ed16 {
             get {
                 object obj = ResourceManager.GetObject("Ed16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PDF24 {
+            get {
+                object obj = ResourceManager.GetObject("PDF24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap U24 {
+            get {
+                object obj = ResourceManager.GetObject("U24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -215,7 +215,7 @@ namespace CV.Forms
             pContenedor.Height += Tamanio;
         }
 
-        private void CrearLabel(String D Font F, Size S, Point P)
+        private void CrearLabel(String D, Font F, Size S, Point P)
         {
             Label Temp = new Label();
             Temp.Text = D;
