@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Security.Principal;
 using System.IO;
 using System.Text.Json;
 using CV.Clases;
 using CV.Componentes;
-using iText.Layout.Splitting;
-using System.Drawing.Text;
+using System.Diagnostics;
 
 namespace CV.Forms
 {
@@ -37,6 +37,8 @@ namespace CV.Forms
         }
 
         private async void Principal_Load(object sender, EventArgs e) => await Cargar();
+
+        private async Task Guardar() => File.WriteAllText("Curriculums.json", JsonSerializer.Serialize(Estructura, new JsonSerializerOptions { WriteIndented = true }), Encoding.ASCII);
 
         public async Task GuardarJSON(String Parte, Object X)
         {
@@ -71,7 +73,7 @@ namespace CV.Forms
                     if (Estructura[Key].Personal.Perfil.Imagen != null && Estructura[Key].Educacion != null && Estructura[Key].Experiencia != null && Estructura[Key].Habilidades != null)
                         SP.Controls[0].Enabled = Estructura[Key].Educacion.Count > 0 && Estructura[Key].Experiencia.Count > 0 && Estructura[Key].Habilidades.Count > 0;
             Nuevo = false;
-            File.WriteAllText("Curriculums.json", JsonSerializer.Serialize(Estructura, new JsonSerializerOptions { WriteIndented = true }), Encoding.ASCII);
+            await Guardar();
         }
 
         private void CrearCurr_Click(object sender, EventArgs e)
@@ -214,6 +216,7 @@ namespace CV.Forms
             pCurr.Height += 30;
             pCurr.Controls.Add(Temp);
             BotonCurr.Add(Temp);
+            i++;
             OcultarSubPanel();
         }
 
@@ -267,14 +270,31 @@ namespace CV.Forms
             }
         }
 
-        private async void CrearPDF(object sender, EventArgs e) => await new PDF().CrearPDF(Estructura[Key], Key);
+        private void CrearPDF(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PDF|*.pdf";
+                saveFileDialog.InitialDirectory = $@"C:\Users\{WindowsIdentity.GetCurrent().Name.Split('\\')[1]}\Documents\";
+                saveFileDialog.FileName = $"{Key} Curriculum";
+                saveFileDialog.DefaultExt = "PDF|*.pdf";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    Task.Run(async () =>
+                    {
+                        Task PDF = new PDF().CrearPDF(Estructura[Key], saveFileDialog.FileName);
+                        await PDF;
+                        Process.Start(saveFileDialog.FileName);
+                    }).GetAwaiter().GetResult();
+            }
+        }
+        
 
         private async void Eliminar(object sender, EventArgs e)
         {
             if (MessageBox.Show($"¿Desea eliminar el perfil de {Key}?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 Estructura.Remove(Key);
-                File.WriteAllText("Curriculums.json", JsonSerializer.Serialize(Estructura, new JsonSerializerOptions { WriteIndented = true }), Encoding.ASCII);
+                await Guardar();
                 OcultarSubPanel();
                 BotonCurr[index].Dispose();
                 BotonCurr.RemoveAt(index);

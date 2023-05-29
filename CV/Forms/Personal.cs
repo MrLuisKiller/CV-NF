@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Security.Principal;
 using System.Drawing.Drawing2D;
 using CV.Clases;
 
@@ -33,7 +34,7 @@ namespace CV.Forms
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Imagen|*.jpg;*.png";
-                openFileDialog.InitialDirectory = "C://Imagenes";
+                openFileDialog.InitialDirectory = $@"C:\Users\{WindowsIdentity.GetCurrent().Name.Split('\\')[1]}\Pictures\";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Imagen = Image.FromFile(openFileDialog.FileName);

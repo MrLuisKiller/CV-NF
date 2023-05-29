@@ -177,20 +177,14 @@ namespace CV.Componentes
         [Category("MLK - Appearence")]
         public String Texts
         {
-            get
-            {
-                if (isPlaceholder)
-                    return "";
-                else
-                    return text;
-            }
+            get => isPlaceholder ? "" : textBox.Text;
             set
             {
                 if (isPlaceholder)
                     RemovePlaceholder();
                 text = value;
                 textBox.Text = value;
-                //SetPlaceholder();
+                SetPlaceholder();
             }
         }
 

@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Drawing.Drawing2D;
-using System.Diagnostics;
 using iText.Kernel.Pdf;
 using iText.Kernel.Geom;
 using iText.Kernel.Font;
@@ -15,7 +14,6 @@ using iText.Layout.Element;
 using iText.Layout.Borders;
 using iText.IO.Font;
 using iText.IO.Image;
-using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
 
@@ -26,8 +24,8 @@ namespace CV.Clases
         private static iText.Kernel.Colors.Color RoyalBlue;
         private static PdfFont JetBrains, JetBrainsBold, JetBrainsItalic;
         private static Border NO_BORDER = Border.NO_BORDER;
-        private static iText.Layout.Properties.HorizontalAlignment HorizontalAlignmentCenter = iText.Layout.Properties.HorizontalAlignment.CENTER;
-        private static iText.Layout.Properties.TextAlignment Center = iText.Layout.Properties.TextAlignment.CENTER, Justified = iText.Layout.Properties.TextAlignment.JUSTIFIED;
+        private static iText.Layout.Properties.HorizontalAlignment HorizontalCenter = iText.Layout.Properties.HorizontalAlignment.CENTER;
+        private static iText.Layout.Properties.TextAlignment CENTER = iText.Layout.Properties.TextAlignment.CENTER, JUSTIFIED = iText.Layout.Properties.TextAlignment.JUSTIFIED;
 
         public PDF()
         {
@@ -37,22 +35,7 @@ namespace CV.Clases
             JetBrainsItalic = PdfFontFactory.CreateFont(Properties.Resources.JetBrains_Mono_Italic_Nerd_Font_Complete, PdfEncodings.WINANSI);
         }
 
-        public Task<PDF> CrearPDF(Estructura E, String K)
-        {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "PDF|*.pdf";
-                saveFileDialog.InitialDirectory = "C://Documentos";
-                saveFileDialog.FileName = $"{K} Curriculum";
-                saveFileDialog.DefaultExt = "PDF|*.pdf";
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    Task.Run(() => Crear(E, saveFileDialog.FileName)).GetAwaiter().GetResult();
-                    Process.Start(saveFileDialog.FileName);
-                }
-                return null;
-            }
-        }
+        public async Task CrearPDF(Estructura E, String Path) => Crear(E, Path);
 
         private void Crear(Estructura E, String Path)
         {
@@ -64,92 +47,92 @@ namespace CV.Clases
             info.SetSubject("Curriculum Vitae");
             Document doc = new Document(pdfDocument, PageSize.LETTER);
             doc.SetMargins(15, 40, 15, 40);
-            Table table = new Table(new float[] { 170F, 450F });
-            Cell cell = new Cell(2, 1).Add(Imagen(new ConvertirImagen().ByteAImagen(E.Personal.Perfil.Imagen), E.Personal.Perfil.Style, E.Personal.Perfil.Cap, System.Drawing.Color.RoyalBlue).SetHorizontalAlignment(HorizontalAlignmentCenter));
-            cell.Add(new Paragraph($"{E.Personal.Nombre}\n{E.Personal.Apellidos}").SetTextAlignment(Center).SetFont(JetBrainsBold).SetFontSize(14F));
-            cell.SetBorder(NO_BORDER).SetBorderBottom(new SolidBorder(RoyalBlue, 1));
-            table.AddCell(cell);
-            cell = new Cell(2, 1).Add(new Paragraph("Resumen").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
-            cell.Add(new Paragraph($"{E.Personal.Resumen}\n\n").SetTextAlignment(Justified).SetFont(JetBrains).SetFontSize(10F));
-            cell.SetBorder(NO_BORDER).SetBorderBottom(new SolidBorder(RoyalBlue, 1));
-            table.AddCell(cell);
-            doc.Add(table);
-            table = new Table(new float[] { 190F, 430F });
-            int Qua = 3 * E.Habilidades.Count;
-            cell = new Cell(Qua, 1);
+            Table tabla = new Table(new float[] { 170F, 450F });
+            Cell celda = new Cell(2, 1).Add(Imagen(new ConvertirImagen().ByteAImagen(E.Personal.Perfil.Imagen), E.Personal.Perfil.Style, E.Personal.Perfil.Cap, System.Drawing.Color.RoyalBlue).SetHorizontalAlignment(HorizontalCenter));
+            celda.Add(new Paragraph($"{E.Personal.Nombre}\n{E.Personal.Apellidos}").SetTextAlignment(CENTER).SetFont(JetBrainsBold).SetFontSize(14F));
+            celda.SetBorder(NO_BORDER).SetBorderBottom(new SolidBorder(RoyalBlue, 1));
+            tabla.AddCell(celda);
+            celda = new Cell(2, 1).Add(new Paragraph("Resumen").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
+            celda.Add(new Paragraph($"{E.Personal.Resumen}\n\n").SetTextAlignment(JUSTIFIED).SetFont(JetBrains).SetFontSize(10F));
+            celda.SetBorder(NO_BORDER).SetBorderBottom(new SolidBorder(RoyalBlue, 1));
+            tabla.AddCell(celda);
+            doc.Add(tabla);
+            tabla = new Table(new float[] { 190F, 430F });
+            int Cant = 3 * E.Habilidades.Count;
+            celda = new Cell(Cant, 1);
             foreach (String Key in E.Habilidades.Keys)
             {
                 String X = "";
-                cell.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
-                cell.Add(new Paragraph(Key).SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
+                celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+                celda.Add(new Paragraph(Key).SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
                 foreach (String L in E.Habilidades[Key])
-                    X += L;
-                cell.Add(new Paragraph(X).SetFont(JetBrains).SetFontSize(10F));
+                    X += $"{L} ";
+                celda.Add(new Paragraph(X).SetFont(JetBrains).SetFontSize(10F));
             }
-            table.AddCell(cell);
-            Qua = 8;
-            Qua += 1 + (3 * E.Educacion.Count);
-            Qua += 1 + (4 * E.Experiencia.Count);
-            cell = new Cell(Qua, 1).Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F));
-            cell.Add(new Paragraph("Contacto").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
-            Table _table = new Table(new float[] { 17F, 423F });
-            Cell _cell = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Telefono))).SetHorizontalAlignment(HorizontalAlignmentCenter).SetWidth(16F)).SetBorder(NO_BORDER);
-            _table.AddCell(_cell);
-            _cell = new Cell().Add(new Paragraph(E.Personal.Telefono).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
-            _table.AddCell(_cell);
-            cell.Add(_table);
-            _table = new Table(new float[] { 17F, 423F });
-            _cell = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Correo))).SetHorizontalAlignment(HorizontalAlignmentCenter).SetWidth(16F)).SetBorder(NO_BORDER);
-            _table.AddCell(_cell);
-            _cell = new Cell().Add(new Paragraph(E.Personal.Correo).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
-            _table.AddCell(_cell);
-            cell.Add(_table);
-            _table = new Table(new float[] { 17F, 423F });
-            _cell = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Mapa))).SetHorizontalAlignment(HorizontalAlignmentCenter).SetWidth(16F)).SetBorder(NO_BORDER);
-            _table.AddCell(_cell);
-            _cell = new Cell().Add(new Paragraph(E.Personal.Direccion).SetFont(JetBrains).SetFontSize(10F).SetBorder(NO_BORDER));
-            _table.AddCell(_cell);
-            cell.Add(_table);
-            _table = new Table(new float[] { 17F, 423F });
-            _cell = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Web))).SetHorizontalAlignment(HorizontalAlignmentCenter).SetWidth(16F)).SetBorder(NO_BORDER);
-            _table.AddCell(_cell);
-            _cell = new Cell().Add(new Paragraph(E.Personal.Pagina).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
-            _table.AddCell(_cell);
-            cell.Add(_table);
-            cell.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
-            cell.Add(new Paragraph("Educación").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
+            tabla.AddCell(celda);
+            Cant = 8;
+            Cant += 1 + (3 * E.Educacion.Count);
+            Cant += 1 + (4 * E.Experiencia.Count);
+            celda = new Cell(Cant, 1).Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F));
+            celda.Add(new Paragraph("Contacto").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
+            Table _tabla = new Table(new float[] { 17F, 423F });
+            Cell _celda = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Telefono))).SetHorizontalAlignment(HorizontalCenter).SetWidth(16F)).SetBorder(NO_BORDER);
+            _tabla.AddCell(_celda);
+            _celda = new Cell().Add(new Paragraph(E.Personal.Telefono).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+            _tabla.AddCell(_celda);
+            celda.Add(_tabla);
+            _tabla = new Table(new float[] { 17F, 423F });
+            _celda = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Correo))).SetHorizontalAlignment(HorizontalCenter).SetWidth(16F)).SetBorder(NO_BORDER);
+            _tabla.AddCell(_celda);
+            _celda = new Cell().Add(new Paragraph(E.Personal.Correo).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+            _tabla.AddCell(_celda);
+            celda.Add(_tabla);
+            _tabla = new Table(new float[] { 17F, 423F });
+            _celda = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Mapa))).SetHorizontalAlignment(HorizontalCenter).SetWidth(16F)).SetBorder(NO_BORDER);
+            _tabla.AddCell(_celda);
+            _celda = new Cell().Add(new Paragraph(E.Personal.Direccion).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+            _tabla.AddCell(_celda);
+            celda.Add(_tabla);
+            _tabla = new Table(new float[] { 17F, 423F });
+            _celda = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Web))).SetHorizontalAlignment(HorizontalCenter).SetWidth(16F)).SetBorder(NO_BORDER);
+            _tabla.AddCell(_celda);
+            _celda = new Cell().Add(new Paragraph(E.Personal.Pagina).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+            _tabla.AddCell(_celda);
+            celda.Add(_tabla);
+            celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+            celda.Add(new Paragraph("Educación").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
             for (int i = 0; i < E.Educacion.Count; i++)
             {
-                cell.Add(new Paragraph(E.Educacion[i].Institucion).SetFont(JetBrainsBold).SetFontSize(10F));
-                cell.Add(new Paragraph(E.Educacion[i].Carrera).SetFont(JetBrains).SetFontSize(5F));
-                cell.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
+                celda.Add(new Paragraph(E.Educacion[i].Institucion).SetFont(JetBrainsBold).SetFontSize(10F));
+                celda.Add(new Paragraph(E.Educacion[i].Carrera).SetFont(JetBrains).SetFontSize(10F));
+                celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
             }
-            cell.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
-            cell.Add(new Paragraph("Experiencia").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
+            celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
+            celda.Add(new Paragraph("Experiencia").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
             for (int i = 0; i < E.Experiencia.Count; i++)
             {
-                String D = E.Experiencia[i].Trabajo ? $"{new Mes().Abreviar(E.Experiencia[i].FInicio.ToString("MM/yyyy"))} - Actualmente" : $"{new Mes().Abreviar(E.Experiencia[i].FInicio.ToString("MM/yyyy"))} - {new Mes().Abreviar(E.Experiencia[i].FFinal.ToString("MM/yyyy"))}";
-                _table = new Table(new float[] { 17F, 423F });
-                _cell = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Flecha))).SetHorizontalAlignment(HorizontalAlignmentCenter).SetWidth(16F)).SetBorder(NO_BORDER);
-                _table.AddCell(_cell);
-                _cell = new Cell().Add(new Paragraph($"{E.Experiencia[i].Nombre} | {D} | {E.Experiencia[i].Compania}").SetFont(JetBrainsItalic).SetFontSize(10F)).SetBorder(NO_BORDER);
-                _table.AddCell(_cell);
-                cell.Add(_table);
-                _table = new Table(new float[] { 17F, 423F });
-                _table.AddCell(new Cell().SetBorder(NO_BORDER));
-                _cell = new Cell().Add(new Paragraph(E.Experiencia[i].Descripcion).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
-                _table.AddCell(_cell);
-                cell.Add(_table);
-                _table = new Table(new float[] { 17F, 423F });
-                _table.AddCell(new Cell().SetBorder(NO_BORDER));
-                _cell = new Cell().Add(new Paragraph(E.Experiencia[i].Habilidades).SetFont(JetBrainsBold).SetFontSize(10F)).SetBorder(NO_BORDER);
-                _table.AddCell(_cell);
-                cell.Add(_table);
-                cell.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F)).SetBorder(NO_BORDER);
+                String F = E.Experiencia[i].Trabajo ? $"{new Mes().Abreviar(E.Experiencia[i].FInicio.ToString("MM/yyyy"))} - Actualmente" : $"{new Mes().Abreviar(E.Experiencia[i].FInicio.ToString("MM/yyyy"))} - {new Mes().Abreviar(E.Experiencia[i].FFinal.ToString("MM/yyyy"))}";
+                _tabla = new Table(new float[] { 17F, 423F });
+                _celda = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Flecha))).SetHorizontalAlignment(HorizontalCenter).SetWidth(16F)).SetBorder(NO_BORDER);
+                _tabla.AddCell(_celda);
+                _celda = new Cell().Add(new Paragraph($"{E.Experiencia[i].Nombre} | {F} | {E.Experiencia[i].Compania}").SetFont(JetBrainsItalic).SetFontSize(10F)).SetBorder(NO_BORDER);
+                _tabla.AddCell(_celda);
+                celda.Add(_tabla);
+                _tabla = new Table(new float[] { 17F, 423F });
+                _tabla.AddCell(new Cell().SetBorder(NO_BORDER));
+                _celda = new Cell().Add(new Paragraph(E.Experiencia[i].Descripcion).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+                _tabla.AddCell(_celda);
+                celda.Add(_tabla);
+                _tabla = new Table(new float[] { 17F, 423F });
+                _tabla.AddCell(new Cell().SetBorder(NO_BORDER));
+                _celda = new Cell().Add(new Paragraph(E.Experiencia[i].Habilidades).SetFont(JetBrainsBold).SetFontSize(10F)).SetBorder(NO_BORDER);
+                _tabla.AddCell(_celda);
+                celda.Add(_tabla);
+                celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F)).SetBorder(NO_BORDER);
             }
-            cell.SetBorder(NO_BORDER);
-            table.AddCell(cell);
-            doc.Add(table);
+            celda.SetBorder(NO_BORDER);
+            tabla.AddCell(celda);
+            doc.Add(tabla);
             doc.Close();
         }
 

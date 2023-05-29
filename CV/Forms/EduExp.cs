@@ -123,6 +123,7 @@ namespace CV.Forms
                 Edu[X].FFinal = !Estoy[Parte].Checked ? DateTime.Parse(FFinal[Parte].Value.ToShortDateString()) : DateTime.Parse(DateTime.Now.ToShortDateString());
                 Edu[X].Estudio = Estoy[Parte].Checked;
                 Edu[X].Descripcion = Descripcion[Parte].Texts;
+                await Principal.GuardarJSON(Parte, Edu);
             }
             else
             {
@@ -152,8 +153,9 @@ namespace CV.Forms
                 Exp[X].Trabajo = Estoy[Parte].Checked;
                 Exp[X].Descripcion = Descripcion[Parte].Texts;
                 Exp[X].Habilidades = Habilidades.Texts;
+                await Principal.GuardarJSON(Parte, Exp);
             }
-            await Principal.GuardarJSON(Parte, Parte == "Educacion" ? Edu : Exp);
+            //await Principal.GuardarJSON(Parte, Parte == "Educacion" ? Edu : Exp);
             pContenedor.Visible = true;
             Agregar.Visible = true;
             pAgregar[Parte].Visible = false;
@@ -244,18 +246,25 @@ namespace CV.Forms
             MLKButton clickedButton = (MLKButton)sender;
             int i = int.Parse(clickedButton.Tag.ToString()), X = Parte == "Educacion" ? Edu.Count : Exp.Count;
             if (Parte == "Educacion")
+            {
                 Edu.RemoveAt(i);
+                await Principal.GuardarJSON(Parte, Edu);
+            }
             else
+            {
                 Exp.RemoveAt(i);
-            await Principal.GuardarJSON(Parte, Parte == "Educacion" ? Edu : Exp);
+                await Principal.GuardarJSON(Parte, Exp);
+            }
+            //await Principal.GuardarJSON(Parte, Parte == "Educacion" ? Edu : Exp);
             for (int j = i; j < X; j++)
                 foreach (MLKButton mlkB in pE[j].Controls.OfType<MLKButton>())
                     mlkB.Tag = int.Parse(mlkB.Tag.ToString()) - 1;
             pContenedor.Controls[i].Dispose();
             pContenedor.Height -= Tamanio;
-            pE.RemoveAll(i);
+            pE.RemoveAt(i);
             this.i--;
         }
+
 
         private void Editar(object sender, EventArgs e)
         {
