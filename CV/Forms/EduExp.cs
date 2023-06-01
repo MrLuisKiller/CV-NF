@@ -37,10 +37,14 @@ namespace CV.Forms
             InitDictionary();
             Principal = F as Principal;
             Parte = P;
-            if (P == "Educacion")
+            /* if (P == "Educacion")
                 Edu = (List<DEducacion>)X;
             else
-                Exp = (List<DExperiencia>)X;
+                Exp = (List<DExperiencia>)X; */
+            if (P == "Educacion")
+                Edu = ((List<DEducacion>)X).Select(i => i).OrderBy(i => i.FInicio).ToList();
+            else
+                Exp = ((List<DExperiencia>)X).Select(i => i).OrderBy(i => i.FInicio).ToList();
             Tamanio = P == "Educacion" ? 84 : 144;
             pContenedor.Height = 0;
             Cargar();

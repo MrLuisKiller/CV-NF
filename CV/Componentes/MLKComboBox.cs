@@ -230,9 +230,9 @@ namespace CV.Componentes
 
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            label.Text = comboBox.Text;
             if (SelectedIndexChanged != null)
                 SelectedIndexChanged.Invoke(sender, e);
-            label.Text = comboBox.Text;
         }
 
         private void ComboBox_TextChanged(object sender, EventArgs e) => label.Text = comboBox.Text;

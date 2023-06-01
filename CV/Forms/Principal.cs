@@ -59,10 +59,12 @@ namespace CV.Forms
                     Habilidades.Enabled = Estructura.ContainsKey(Key);
                     break;
                 case "Educacion":
-                    Estructura[Key].Educacion = (List<DEducacion>)X;
+                    //Estructura[Key].Educacion = (List<DEducacion>)X;
+                    Estructura[Key].Educacion = ((List<DEducacion>)X).Select(i => i).OrderBy(i => i.FInicio).ToList();
                     break;
                 case "Experiencia":
-                    Estructura[Key].Experiencia = (List<DExperiencia>)X;
+                    //Estructura[Key].Experiencia = (List<DExperiencia>)X;
+                    Estructura[Key].Experiencia = ((List<DExperiencia>)X).Select(i => i).OrderBy(i => i.FInicio).ToList();
                     break;
                 case "Habilidades":
                     Estructura[Key].Habilidades = (Dictionary<String, List<String>>)X;
@@ -74,6 +76,24 @@ namespace CV.Forms
                         SP.Controls[0].Enabled = Estructura[Key].Educacion.Count > 0 && Estructura[Key].Experiencia.Count > 0 && Estructura[Key].Habilidades.Count > 0;
             Nuevo = false;
             await Guardar();
+        }
+
+        private Object Organizar(String Parte, Object X)
+        {
+            List<DEducacion> Edu;
+            List<DExperiencia> Exp;
+            if (Parte.Equals("Educacion"))
+            {
+                Edu = (List<DEducacion>)X;
+
+                return Edu;
+            }
+            else
+            {
+                Exp = (List<DExperiencia>)X;
+
+                return Exp;
+            }
         }
 
         private void CrearCurr_Click(object sender, EventArgs e)

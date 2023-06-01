@@ -17,18 +17,18 @@
     },
     "Educacion": [
       {
-        "Carrera": "Ing. Tecnolog\u00EDa de la Informaci\u00F3n y las Comunicaciones",
-        "Institucion": "Instituto Tecnol\u00F3gico de Huatabampo",
-        "FInicio": "2016-08-01T00:00:00",
-        "FFinal": "2021-03-01T00:00:00",
-        "Estudio": false,
-        "Descripcion": ""
-      },
-      {
         "Carrera": "Programaci\u00F3n",
         "Institucion": "Centro de Bachillerato Tecnol\u00F3gico Industrial y de Servicios No. 63",
         "FInicio": "2013-08-01T00:00:00",
         "FFinal": "2016-06-30T00:00:00",
+        "Estudio": false,
+        "Descripcion": ""
+      },
+      {
+        "Carrera": "Ing. Tecnolog\u00EDa de la Informaci\u00F3n y las Comunicaciones",
+        "Institucion": "Instituto Tecnol\u00F3gico de Huatabampo",
+        "FInicio": "2016-08-01T00:00:00",
+        "FFinal": "2021-03-01T00:00:00",
         "Estudio": false,
         "Descripcion": ""
       }
@@ -55,6 +55,17 @@
         "Trabajo": true,
         "Descripcion": "Creador de Curriculum en formato PDF",
         "Habilidades": "C#, JSON y iText7 (PDF)"
+      },
+      {
+        "Nombre": "Operador Universal",
+        "Compania": "Winchester Interconnect",
+        "Direccion": "",
+        "Pagina": "",
+        "FInicio": "2022-06-02T00:00:00",
+        "FFinal": "2023-05-29T00:00:00",
+        "Trabajo": true,
+        "Descripcion": "",
+        "Habilidades": "Despoje, Remachado, Prueba Electrica, Soldadura, Impresion de etiqueta de Caja y Bolsa.\r\nPoca experiencia con SyteLine para sacar el PO y el CN."
       }
     ],
     "Habilidades": {
