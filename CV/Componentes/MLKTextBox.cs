@@ -210,10 +210,10 @@ namespace CV.Componentes
                 SetPlaceholder();
         }
 
-        public void Focus() => RemovePlaceholder();
+        public new void Focus() => RemovePlaceholder();
 
         [Browsable(true)]
-        public event EventHandler TextChanged;
+        public new event EventHandler TextChanged;
 
         public MLKTextBox()
         {

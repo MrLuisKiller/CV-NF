@@ -194,7 +194,7 @@ namespace CV.Componentes
         }
 
         [Category("MLK - Appearence")]
-        public new String Mask
+        public String Mask
         {
             get => mask;
             set
@@ -211,10 +211,10 @@ namespace CV.Componentes
             SetPlaceholder();
         }
 
-        public void Focus() => RemovePlaceholder();
+        public new void Focus() => RemovePlaceholder();
 
         [Browsable(true)]
-        public event EventHandler TextChanged;
+        public new event EventHandler TextChanged;
 
         public MLKMaskedTextBox()
         {

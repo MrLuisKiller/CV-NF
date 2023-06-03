@@ -35,7 +35,11 @@ namespace CV.Clases
             JetBrainsItalic = PdfFontFactory.CreateFont(Properties.Resources.JetBrains_Mono_Italic_Nerd_Font_Complete, PdfEncodings.WINANSI);
         }
 
-        public async Task CrearPDF(Estructura E, String Path) => Crear(E, Path);
+        public Task CrearPDF(Estructura E, String Path)
+        {
+            Crear(E, Path);
+            return Task.CompletedTask;
+        }
 
         private void Crear(Estructura E, String Path)
         {
@@ -93,16 +97,21 @@ namespace CV.Clases
             _celda = new Cell().Add(new Paragraph(E.Personal.Direccion).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
             _tabla.AddCell(_celda);
             celda.Add(_tabla);
-            _tabla = new Table(new float[] { 17F, 423F });
-            _celda = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Web))).SetHorizontalAlignment(HorizontalCenter).SetWidth(16F)).SetBorder(NO_BORDER);
-            _tabla.AddCell(_celda);
-            _celda = new Cell().Add(new Paragraph(E.Personal.Pagina).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
-            _tabla.AddCell(_celda);
-            celda.Add(_tabla);
+            if (!String.IsNullOrWhiteSpace(E.Personal.Pagina))
+            {
+                _tabla = new Table(new float[] { 17F, 423F });
+                _celda = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Web))).SetHorizontalAlignment(HorizontalCenter).SetWidth(16F)).SetBorder(NO_BORDER);
+                _tabla.AddCell(_celda);
+                _celda = new Cell().Add(new Paragraph(E.Personal.Pagina).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+                _tabla.AddCell(_celda);
+                celda.Add(_tabla);
+            }
             celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
             celda.Add(new Paragraph("Educación").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
             for (int i = 0; i < E.Educacion.Count; i++)
             {
+                String F = $"{new Mes().Abreviar(E.Educacion[i].FInicio.ToString("MM/yyyy"))} - {new Mes().Abreviar(E.Educacion[i].FFinal.ToString("MM/yyyy"))}";
+                celda.Add(new Paragraph(F).SetFont(JetBrainsItalic)).SetFontSize(9F);
                 celda.Add(new Paragraph(E.Educacion[i].Institucion).SetFont(JetBrainsBold).SetFontSize(10F));
                 celda.Add(new Paragraph(E.Educacion[i].Carrera).SetFont(JetBrains).SetFontSize(10F));
                 celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));

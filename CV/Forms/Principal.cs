@@ -38,7 +38,11 @@ namespace CV.Forms
 
         private async void Principal_Load(object sender, EventArgs e) => await Cargar();
 
-        private async Task Guardar() => File.WriteAllText("Curriculums.json", JsonSerializer.Serialize(Estructura, new JsonSerializerOptions { WriteIndented = true }), Encoding.ASCII);
+        private Task Guardar()
+        {
+            File.WriteAllText("Curriculums.json", JsonSerializer.Serialize(Estructura, new JsonSerializerOptions { WriteIndented = true }), Encoding.ASCII);
+            return Task.CompletedTask;
+        }
 
         public async Task GuardarJSON(String Parte, Object X)
         {
@@ -76,24 +80,6 @@ namespace CV.Forms
                         SP.Controls[0].Enabled = Estructura[Key].Educacion.Count > 0 && Estructura[Key].Experiencia.Count > 0 && Estructura[Key].Habilidades.Count > 0;
             Nuevo = false;
             await Guardar();
-        }
-
-        private Object Organizar(String Parte, Object X)
-        {
-            List<DEducacion> Edu;
-            List<DExperiencia> Exp;
-            if (Parte.Equals("Educacion"))
-            {
-                Edu = (List<DEducacion>)X;
-
-                return Edu;
-            }
-            else
-            {
-                Exp = (List<DExperiencia>)X;
-
-                return Exp;
-            }
         }
 
         private void CrearCurr_Click(object sender, EventArgs e)
@@ -195,7 +181,7 @@ namespace CV.Forms
                 mlkB.BackgroundColor = Color.MediumSlateBlue;
         }
 
-        private async Task Cargar()
+        private Task Cargar()
         {
             try
             {
@@ -207,6 +193,7 @@ namespace CV.Forms
             {
                 Estructura = new Dictionary<string, Estructura>();
             }
+            return Task.CompletedTask;
         }
 
         private void Creador(String Key, bool Cargar = true)

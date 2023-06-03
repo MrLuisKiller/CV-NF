@@ -31,7 +31,6 @@ namespace CV.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Perfil = new CV.Componentes.MLKPictureBox();
             this.PerfilContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bordeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solidToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,27 +51,10 @@ namespace CV.Forms
             this.Pagina = new CV.Componentes.MLKTextBox();
             this.Resumen = new CV.Componentes.MLKTextBox();
             this.Guardar = new CV.Componentes.MLKButton();
-            ((System.ComponentModel.ISupportInitialize)(this.Perfil)).BeginInit();
+            this.Perfil = new CV.Componentes.MLKPictureBox();
             this.PerfilContextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Perfil)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Perfil
-            // 
-            this.Perfil.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.Perfil.BorderColor1 = System.Drawing.Color.HotPink;
-            this.Perfil.BorderColor2 = System.Drawing.Color.Purple;
-            this.Perfil.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.Perfil.BorderSize = 3;
-            this.Perfil.ContextMenuStrip = this.PerfilContextMenu;
-            this.Perfil.GradientAngle = 50F;
-            this.Perfil.Image = global::CV.Properties.Resources.U256;
-            this.Perfil.Location = new System.Drawing.Point(12, 12);
-            this.Perfil.Name = "Perfil";
-            this.Perfil.Size = new System.Drawing.Size(150, 150);
-            this.Perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Perfil.TabIndex = 0;
-            this.Perfil.TabStop = false;
-            this.Perfil.Click += new System.EventHandler(this.Perfil_Click);
             // 
             // PerfilContextMenu
             // 
@@ -93,37 +75,41 @@ namespace CV.Forms
             this.bordeToolStripMenuItem.Name = "bordeToolStripMenuItem";
             this.bordeToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.bordeToolStripMenuItem.Text = "Borde";
-            this.bordeToolStripMenuItem.Click += new System.EventHandler(this.bordeToolStripMenuItem_Click);
             // 
             // solidToolStripMenuItem
             // 
             this.solidToolStripMenuItem.Name = "solidToolStripMenuItem";
             this.solidToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.solidToolStripMenuItem.Text = "Solid";
+            this.solidToolStripMenuItem.Click += new System.EventHandler(this.bordeToolStripMenuItem_Click);
             // 
             // dashToolStripMenuItem
             // 
             this.dashToolStripMenuItem.Name = "dashToolStripMenuItem";
             this.dashToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dashToolStripMenuItem.Text = "Dash";
+            this.dashToolStripMenuItem.Click += new System.EventHandler(this.bordeToolStripMenuItem_Click);
             // 
             // dotToolStripMenuItem
             // 
             this.dotToolStripMenuItem.Name = "dotToolStripMenuItem";
             this.dotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dotToolStripMenuItem.Text = "Dot";
+            this.dotToolStripMenuItem.Click += new System.EventHandler(this.bordeToolStripMenuItem_Click);
             // 
             // dashDotToolStripMenuItem
             // 
             this.dashDotToolStripMenuItem.Name = "dashDotToolStripMenuItem";
             this.dashDotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dashDotToolStripMenuItem.Text = "DashDot";
+            this.dashDotToolStripMenuItem.Click += new System.EventHandler(this.bordeToolStripMenuItem_Click);
             // 
             // dashDotDotToolStripMenuItem
             // 
             this.dashDotDotToolStripMenuItem.Name = "dashDotDotToolStripMenuItem";
             this.dashDotDotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dashDotDotToolStripMenuItem.Text = "DashDotDot";
+            this.dashDotDotToolStripMenuItem.Click += new System.EventHandler(this.bordeToolStripMenuItem_Click);
             // 
             // estiloToolStripMenuItem
             // 
@@ -135,25 +121,27 @@ namespace CV.Forms
             this.estiloToolStripMenuItem.Name = "estiloToolStripMenuItem";
             this.estiloToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.estiloToolStripMenuItem.Text = "Estilo";
-            this.estiloToolStripMenuItem.Click += new System.EventHandler(this.estiloToolStripMenuItem_Click);
             // 
             // flatToolStripMenuItem
             // 
             this.flatToolStripMenuItem.Name = "flatToolStripMenuItem";
             this.flatToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.flatToolStripMenuItem.Text = "Flat";
+            this.flatToolStripMenuItem.Click += new System.EventHandler(this.estiloToolStripMenuItem_Click);
             // 
             // roundToolStripMenuItem
             // 
             this.roundToolStripMenuItem.Name = "roundToolStripMenuItem";
             this.roundToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.roundToolStripMenuItem.Text = "Round";
+            this.roundToolStripMenuItem.Click += new System.EventHandler(this.estiloToolStripMenuItem_Click);
             // 
             // triangleToolStripMenuItem
             // 
             this.triangleToolStripMenuItem.Name = "triangleToolStripMenuItem";
             this.triangleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.triangleToolStripMenuItem.Text = "Triangle";
+            this.triangleToolStripMenuItem.Click += new System.EventHandler(this.estiloToolStripMenuItem_Click);
             // 
             // Nombre
             // 
@@ -162,7 +150,7 @@ namespace CV.Forms
             this.Nombre.BorderFocusColor = System.Drawing.Color.MediumSlateBlue;
             this.Nombre.BorderRadius = 10;
             this.Nombre.BorderSize = 1;
-            this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.Nombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Nombre.Location = new System.Drawing.Point(169, 58);
             this.Nombre.Margin = new System.Windows.Forms.Padding(4);
@@ -180,14 +168,14 @@ namespace CV.Forms
             this.Nombre.UnderlinedStyle = false;
             this.Nombre.TextChanged += new System.EventHandler(this.Changed);
             // 
-            // Apellido
+            // Apellidos
             // 
             this.Apellidos.BackColor = System.Drawing.SystemColors.Window;
             this.Apellidos.BorderColor = System.Drawing.Color.Purple;
             this.Apellidos.BorderFocusColor = System.Drawing.Color.MediumSlateBlue;
             this.Apellidos.BorderRadius = 10;
             this.Apellidos.BorderSize = 1;
-            this.Apellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Apellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.Apellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Apellidos.Location = new System.Drawing.Point(316, 58);
             this.Apellidos.Margin = new System.Windows.Forms.Padding(4);
@@ -209,8 +197,8 @@ namespace CV.Forms
             // 
             this.FNacimiento.BorderColor = System.Drawing.Color.Purple;
             this.FNacimiento.BorderSize = 1;
-            this.FNacimiento.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FNacimiento.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.FNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.FNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.FNacimiento.Location = new System.Drawing.Point(462, 58);
             this.FNacimiento.MinimumSize = new System.Drawing.Size(4, 30);
@@ -228,7 +216,7 @@ namespace CV.Forms
             this.Correo.BorderFocusColor = System.Drawing.Color.MediumSlateBlue;
             this.Correo.BorderRadius = 10;
             this.Correo.BorderSize = 1;
-            this.Correo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Correo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.Correo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Correo.Location = new System.Drawing.Point(169, 97);
             this.Correo.Margin = new System.Windows.Forms.Padding(4);
@@ -253,7 +241,7 @@ namespace CV.Forms
             this.Telefono.BorderFocusColor = System.Drawing.Color.MediumSlateBlue;
             this.Telefono.BorderRadius = 10;
             this.Telefono.BorderSize = 1;
-            this.Telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.Telefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Telefono.Location = new System.Drawing.Point(461, 97);
             this.Telefono.Margin = new System.Windows.Forms.Padding(4);
@@ -278,7 +266,7 @@ namespace CV.Forms
             this.Direccion.BorderFocusColor = System.Drawing.Color.MediumSlateBlue;
             this.Direccion.BorderRadius = 10;
             this.Direccion.BorderSize = 1;
-            this.Direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.Direccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Direccion.Location = new System.Drawing.Point(169, 136);
             this.Direccion.Margin = new System.Windows.Forms.Padding(4);
@@ -303,7 +291,7 @@ namespace CV.Forms
             this.Pagina.BorderFocusColor = System.Drawing.Color.MediumSlateBlue;
             this.Pagina.BorderRadius = 10;
             this.Pagina.BorderSize = 1;
-            this.Pagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Pagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.Pagina.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Pagina.Location = new System.Drawing.Point(384, 136);
             this.Pagina.Margin = new System.Windows.Forms.Padding(4);
@@ -328,7 +316,7 @@ namespace CV.Forms
             this.Resumen.BorderFocusColor = System.Drawing.Color.MediumSlateBlue;
             this.Resumen.BorderRadius = 10;
             this.Resumen.BorderSize = 1;
-            this.Resumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Resumen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.Resumen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Resumen.Location = new System.Drawing.Point(13, 175);
             this.Resumen.Margin = new System.Windows.Forms.Padding(4);
@@ -356,7 +344,7 @@ namespace CV.Forms
             this.Guardar.Enabled = false;
             this.Guardar.FlatAppearance.BorderSize = 0;
             this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.Guardar.ForeColor = System.Drawing.Color.White;
             this.Guardar.Location = new System.Drawing.Point(492, 12);
             this.Guardar.Name = "Guardar";
@@ -366,6 +354,24 @@ namespace CV.Forms
             this.Guardar.TextColor = System.Drawing.Color.White;
             this.Guardar.UseVisualStyleBackColor = false;
             this.Guardar.Click += new System.EventHandler(this.Guardar_Click);
+            // 
+            // Perfil
+            // 
+            this.Perfil.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.Perfil.BorderColor1 = System.Drawing.Color.HotPink;
+            this.Perfil.BorderColor2 = System.Drawing.Color.Purple;
+            this.Perfil.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.Perfil.BorderSize = 3;
+            this.Perfil.ContextMenuStrip = this.PerfilContextMenu;
+            this.Perfil.GradientAngle = 50F;
+            this.Perfil.Image = global::CV.Properties.Resources.U256;
+            this.Perfil.Location = new System.Drawing.Point(12, 12);
+            this.Perfil.Name = "Perfil";
+            this.Perfil.Size = new System.Drawing.Size(150, 150);
+            this.Perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Perfil.TabIndex = 0;
+            this.Perfil.TabStop = false;
+            this.Perfil.Click += new System.EventHandler(this.Perfil_Click);
             // 
             // Personal
             // 
@@ -382,13 +388,14 @@ namespace CV.Forms
             this.Controls.Add(this.Apellidos);
             this.Controls.Add(this.Nombre);
             this.Controls.Add(this.Perfil);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Personal";
             this.Text = "Personal";
-            ((System.ComponentModel.ISupportInitialize)(this.Perfil)).EndInit();
             this.PerfilContextMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Perfil)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion

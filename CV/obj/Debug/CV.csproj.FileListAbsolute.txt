@@ -140,3 +140,4 @@ C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\CV\CV\obj\Debug\CV.c
 C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\CV\CV\obj\Debug\CV.csproj.CopyComplete
 C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\CV\CV\obj\Debug\CV.exe
 C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\CV\CV\obj\Debug\CV.pdb
+C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\CV\CV\obj\Debug\CV.Forms.Personal.resources
