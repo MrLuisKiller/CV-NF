@@ -85,7 +85,7 @@ namespace CV.Forms
                 P.Perfil.Imagen = new ConvertirImagen().ImagenAByte(Imagen);
             P.Nombre = Nombre.Texts;
             P.Apellidos = Apellidos.Texts;
-            P.FNacimiento = DateTime.Parse(FNacimiento.Value.ToShortTimeString());
+            P.FNacimiento = DateTime.Parse(FNacimiento.Value.ToShortDateString());
             P.Correo = Correo.Texts;
             P.Telefono = Telefono.Texts;
             P.Direccion = Direccion.Texts;

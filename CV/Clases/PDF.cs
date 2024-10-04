@@ -23,9 +23,9 @@ namespace CV.Clases
     {
         private static iText.Kernel.Colors.Color RoyalBlue;
         private static PdfFont JetBrains, JetBrainsBold, JetBrainsItalic;
-        private static Border NO_BORDER = Border.NO_BORDER;
-        private static iText.Layout.Properties.HorizontalAlignment HorizontalCenter = iText.Layout.Properties.HorizontalAlignment.CENTER;
-        private static iText.Layout.Properties.TextAlignment CENTER = iText.Layout.Properties.TextAlignment.CENTER, JUSTIFIED = iText.Layout.Properties.TextAlignment.JUSTIFIED;
+        private static readonly Border NO_BORDER = Border.NO_BORDER;
+        private static readonly iText.Layout.Properties.HorizontalAlignment HorizontalCenter = iText.Layout.Properties.HorizontalAlignment.CENTER;
+        private static readonly iText.Layout.Properties.TextAlignment CENTER = iText.Layout.Properties.TextAlignment.CENTER, JUSTIFIED = iText.Layout.Properties.TextAlignment.JUSTIFIED, RIGHT = iText.Layout.Properties.TextAlignment.RIGHT;
 
         public PDF()
         {
@@ -64,20 +64,22 @@ namespace CV.Clases
             tabla = new Table(new float[] { 190F, 430F });
             int Cant = 3 * E.Habilidades.Count;
             celda = new Cell(Cant, 1);
+            celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F)).SetBorder(NO_BORDER);
             foreach (String Key in E.Habilidades.Keys)
             {
                 String X = "";
-                celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+                //celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F)).SetBorder(NO_BORDER);
                 celda.Add(new Paragraph(Key).SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
                 foreach (String L in E.Habilidades[Key])
-                    X += $"{L} ";
+                    X += $"{L}  ";
                 celda.Add(new Paragraph(X).SetFont(JetBrains).SetFontSize(10F));
+                celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F)).SetBorder(NO_BORDER);
             }
             tabla.AddCell(celda);
             Cant = 8;
             Cant += 1 + (3 * E.Educacion.Count);
             Cant += 1 + (4 * E.Experiencia.Count);
-            celda = new Cell(Cant, 1).Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F));
+            celda = new Cell(Cant, 1).Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
             celda.Add(new Paragraph("Contacto").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
             Table _tabla = new Table(new float[] { 17F, 423F });
             Cell _celda = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Telefono))).SetHorizontalAlignment(HorizontalCenter).SetWidth(16F)).SetBorder(NO_BORDER);
@@ -106,17 +108,17 @@ namespace CV.Clases
                 _tabla.AddCell(_celda);
                 celda.Add(_tabla);
             }
-            celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+            //celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F)).SetBorder(NO_BORDER);
             celda.Add(new Paragraph("Educación").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
             for (int i = 0; i < E.Educacion.Count; i++)
             {
                 String F = $"{new Mes().Abreviar(E.Educacion[i].FInicio.ToString("MM/yyyy"))} - {new Mes().Abreviar(E.Educacion[i].FFinal.ToString("MM/yyyy"))}";
                 celda.Add(new Paragraph(F).SetFont(JetBrainsItalic)).SetFontSize(9F);
-                celda.Add(new Paragraph(E.Educacion[i].Institucion).SetFont(JetBrainsBold).SetFontSize(10F));
-                celda.Add(new Paragraph(E.Educacion[i].Carrera).SetFont(JetBrains).SetFontSize(10F));
-                celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
+                celda.Add(new Paragraph(E.Educacion[i].Institucion).SetFont(JetBrainsBold).SetFontSize(9F));
+                celda.Add(new Paragraph(E.Educacion[i].Carrera).SetFont(JetBrains).SetFontSize(9F));
+                //celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
             }
-            celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
+            //celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
             celda.Add(new Paragraph("Experiencia").SetFont(JetBrainsBold).SetFontSize(14F).SetFontColor(RoyalBlue));
             for (int i = 0; i < E.Experiencia.Count; i++)
             {
@@ -124,22 +126,28 @@ namespace CV.Clases
                 _tabla = new Table(new float[] { 17F, 423F });
                 _celda = new Cell().Add(new iText.Layout.Element.Image(ImageDataFactory.Create(new ConvertirImagen().ImagenAByte(Properties.Resources.Flecha))).SetHorizontalAlignment(HorizontalCenter).SetWidth(16F)).SetBorder(NO_BORDER);
                 _tabla.AddCell(_celda);
-                _celda = new Cell().Add(new Paragraph($"{E.Experiencia[i].Nombre} | {F} | {E.Experiencia[i].Compania}").SetFont(JetBrainsItalic).SetFontSize(10F)).SetBorder(NO_BORDER);
+                _celda = new Cell().Add(new Paragraph($"{E.Experiencia[i].Nombre} | {F} | {E.Experiencia[i].Compania}").SetFont(JetBrainsItalic).SetFontSize(9F)).SetBorder(NO_BORDER);
                 _tabla.AddCell(_celda);
                 celda.Add(_tabla);
                 _tabla = new Table(new float[] { 17F, 423F });
                 _tabla.AddCell(new Cell().SetBorder(NO_BORDER));
-                _celda = new Cell().Add(new Paragraph(E.Experiencia[i].Descripcion).SetFont(JetBrains).SetFontSize(10F)).SetBorder(NO_BORDER);
+                _celda = new Cell().Add(new Paragraph(E.Experiencia[i].Descripcion).SetFont(JetBrains).SetFontSize(9F)).SetBorder(NO_BORDER);
                 _tabla.AddCell(_celda);
                 celda.Add(_tabla);
                 _tabla = new Table(new float[] { 17F, 423F });
                 _tabla.AddCell(new Cell().SetBorder(NO_BORDER));
-                _celda = new Cell().Add(new Paragraph(E.Experiencia[i].Habilidades).SetFont(JetBrainsBold).SetFontSize(10F)).SetBorder(NO_BORDER);
+                _celda = new Cell().Add(new Paragraph(E.Experiencia[i].Habilidades).SetFont(JetBrainsBold).SetFontSize(9F)).SetBorder(NO_BORDER);
                 _tabla.AddCell(_celda);
                 celda.Add(_tabla);
-                celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F)).SetBorder(NO_BORDER);
+                //celda.Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F)).SetBorder(NO_BORDER);
             }
             celda.SetBorder(NO_BORDER);
+            celda.SetBorderLeft(new SolidBorder(RoyalBlue, 1));
+            tabla.AddCell(celda);
+            doc.Add(tabla);
+            tabla = new Table(new float[] { 620F });
+            celda = new Cell(2, 1).Add(new Paragraph("\n").SetFont(JetBrains).SetFontSize(5F));
+            celda.Add(new Paragraph("Manifiesto bajo protesta de decir verdad que los datos asentados en este documento que consta de 1 hoja son verídicos")).SetFont(JetBrains).SetFontSize(7F).SetBorder(NO_BORDER).SetTextAlignment(RIGHT);
             tabla.AddCell(celda);
             doc.Add(tabla);
             doc.Close();

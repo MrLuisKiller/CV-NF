@@ -8,11 +8,11 @@
       },
       "Nombre": "Luis Manuel",
       "Apellidos": "Valenzuela V\u00E1zquez",
-      "FNacimiento": "2023-06-03T16:01:00",
-      "Resumen": "Ingeniero en Tecnolog\u00EDas de la Informaci\u00F3n y las Comunicaciones en busqueda de desarrollo de mi carrera, ayudando y contribuyendo con mis habilidades en C#, React y Angular.\r\n\r\nProgramador independiente que le encanta investigar sobre las nuevas actualizaciones, funciones y novedades de C#, React, Angular y en las que sea necesaria.",
+      "FNacimiento": "1998-01-19T00:00:00",
+      "Resumen": "Ingeniero en Tecnolog\u00EDas de la Informaci\u00F3n y las Comunicaciones en b\u00FAsqueda de desarrollo de su carrera, ayudando, contribuyendo y mejorando sus habilidades para garantizar la satisfacci\u00F3n de los requerimientos.",
       "Telefono": "(52) 647-114-4678",
       "Correo": "mrluiskiller@gmail.com",
-      "Direccion": "Nogales Sonora, M\u00E9xico",
+      "Direccion": "Ciudad de M\u00E9xico, M\u00E9xico",
       "Pagina": ""
     },
     "Educacion": [
@@ -42,8 +42,8 @@
         "FInicio": "2020-08-01T00:00:00",
         "FFinal": "2021-05-01T00:00:00",
         "Trabajo": false,
-        "Descripcion": "Pagina web y aplicaci\u00F3n m\u00F3vil de un corporativo de abogados",
-        "Habilidades": "HTML, JS, PHP y Aplicaci\u00F3n M\u00F3vil"
+        "Descripcion": "P\u00E1gina web y aplicaci\u00F3n m\u00F3vil de un bufete de abogados.",
+        "Habilidades": "HTML, JS, PHP y Aplicaci\u00F3n M\u00F3vil."
       },
       {
         "Nombre": "CV",
@@ -51,34 +51,48 @@
         "Direccion": "",
         "Pagina": "",
         "FInicio": "2020-09-01T00:00:00",
-        "FFinal": "2023-05-28T00:00:00",
+        "FFinal": "2024-01-08T00:00:00",
         "Trabajo": true,
-        "Descripcion": "Creador de Curriculum en formato PDF",
-        "Habilidades": "C#, JSON y iText7 (PDF)"
+        "Descripcion": "Aplicaci\u00F3n de escritorio para la creaci\u00F3n de Curriculums en formato PDF.",
+        "Habilidades": "C#, JSON y iText7 (PDF)."
       },
       {
-        "Nombre": "Operador Universal",
-        "Compania": "Winchester Interconnect",
+        "Nombre": "T\u00E9cnico Especializado A",
+        "Compania": "Instituto Electoral de la Ciudad de M\u00E9xico",
         "Direccion": "",
         "Pagina": "",
-        "FInicio": "2022-06-02T00:00:00",
-        "FFinal": "2023-05-29T00:00:00",
+        "FInicio": "2024-01-16T00:00:00",
+        "FFinal": "2024-10-03T00:00:00",
         "Trabajo": true,
-        "Descripcion": "",
-        "Habilidades": "Despoje, Remachado, Prueba Electrica, Soldadura, Impresion de etiqueta de Caja y Bolsa.\r\nPoca experiencia con SyteLine para sacar el PO y el CN."
+        "Descripcion": "Responsable de desarrollar y apoyar en distintos m\u00F3dulos\r\nde sistemas importantes del instituto, como el monitor de\r\ntransacciones para SICODID (Sistema de C\u00F3mputos\r\nDistritales y Demarcaci\u00F3n) y el visualizador de actas\r\nelectorales PREP (Programa de Resultados Electorales\r\nPreliminares), utilizados en la jornada electoral junio\r\n2024",
+        "Habilidades": "HTML CSS JS JQUERY PHP NODEJS EXPRESS ANGULAR"
       }
     ],
     "Habilidades": {
       "Lenguajes": [
-        "FPDF",
-        "iText7",
-        "React",
-        "Angular"
+        "C#",
+        "JavaScript",
+        "TypeScript",
+        "PHP"
       ],
       "Librerias": [
-        "C#",
-        "PHP",
-        "JavaScript"
+        "Mongoose",
+        "FPDF",
+        "iText7",
+        "JQuery",
+        "Sequelize",
+        "JsonWebToken",
+        "ExcelJs",
+        "PDFKit"
+      ],
+      "Base de Datos": [
+        "SQL Server",
+        "MySql",
+        "MongoDB"
+      ],
+      "FrameWork": [
+        "React",
+        "Angular"
       ]
     }
   }
