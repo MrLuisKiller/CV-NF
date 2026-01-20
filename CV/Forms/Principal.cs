@@ -64,11 +64,11 @@ namespace CV.Forms
                     break;
                 case "Educacion":
                     //Estructura[Key].Educacion = (List<DEducacion>)X;
-                    Estructura[Key].Educacion = ((List<DEducacion>)X).Select(i => i).OrderBy(i => i.FInicio).ToList();
+                    Estructura[Key].Educacion = ((List<DEducacion>)X).OrderBy(i => i.FInicio).ToList();
                     break;
                 case "Experiencia":
                     //Estructura[Key].Experiencia = (List<DExperiencia>)X;
-                    Estructura[Key].Experiencia = ((List<DExperiencia>)X).Select(i => i).OrderBy(i => i.FInicio).ToList();
+                    Estructura[Key].Experiencia = ((List<DExperiencia>)X).OrderByDescending(i => i.FInicio).ToList();
                     break;
                 case "Habilidades":
                     Estructura[Key].Habilidades = (Dictionary<String, List<String>>)X;

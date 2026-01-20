@@ -49,7 +49,7 @@ namespace CV.Clases
             info.SetTitle($"Curriculum de {E.Personal.Nombre} {E.Personal.Apellidos}");
             info.SetAuthor("CV by MrLuisKiller");
             info.SetSubject("Curriculum Vitae");
-            Document doc = new Document(pdfDocument, PageSize.LETTER);
+            Document doc = new Document(pdfDocument, PageSize.A4);
             doc.SetMargins(15, 40, 15, 40);
             Table tabla = new Table(new float[] { 170F, 450F });
             Cell celda = new Cell(2, 1).Add(Imagen(new ConvertirImagen().ByteAImagen(E.Personal.Perfil.Imagen), E.Personal.Perfil.Style, E.Personal.Perfil.Cap, System.Drawing.Color.RoyalBlue).SetHorizontalAlignment(HorizontalCenter));

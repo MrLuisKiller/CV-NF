@@ -211,3 +211,4 @@ C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\C#\CV\CV\obj\Debug\C
 C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\C#\CV\CV\obj\Debug\CV.csproj.Up2Date
 C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\C#\CV\CV\obj\Debug\CV.exe
 C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\C#\CV\CV\obj\Debug\CV.pdb
+C:\Users\MrLuisKiller\Documents\Visual Studio 2022\Projects\C#\CV\CV\obj\Debug\CV.exe.config

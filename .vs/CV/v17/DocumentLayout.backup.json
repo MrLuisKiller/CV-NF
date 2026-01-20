@@ -11,6 +11,14 @@
       "RelativeMoniker": "D:0:0:{E0E6FA71-807B-490C-946C-9FF820A7F7F0}|CV\\CV.csproj|solutionrelative:cv\\forms\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E0E6FA71-807B-490C-946C-9FF820A7F7F0}|CV\\CV.csproj|c:\\users\\mrluiskiller\\documents\\visual studio 2022\\projects\\c#\\cv\\cv\\forms\\eduexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0E6FA71-807B-490C-946C-9FF820A7F7F0}|CV\\CV.csproj|solutionrelative:cv\\forms\\eduexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0E6FA71-807B-490C-946C-9FF820A7F7F0}|CV\\CV.csproj|c:\\users\\mrluiskiller\\documents\\visual studio 2022\\projects\\c#\\cv\\cv\\forms\\eduexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E0E6FA71-807B-490C-946C-9FF820A7F7F0}|CV\\CV.csproj|solutionrelative:cv\\forms\\eduexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E0E6FA71-807B-490C-946C-9FF820A7F7F0}|CV\\CV.csproj|C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\cv\\forms\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E0E6FA71-807B-490C-946C-9FF820A7F7F0}|CV\\CV.csproj|solutionrelative:cv\\forms\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
@@ -22,8 +30,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EduExp.cs",
+              "DocumentMoniker": "C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\CV\\Forms\\EduExp.cs",
+              "RelativeDocumentMoniker": "CV\\Forms\\EduExp.cs",
+              "ToolTip": "C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\CV\\Forms\\EduExp.cs",
+              "RelativeToolTip": "CV\\Forms\\EduExp.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAAAIEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T01:08:11.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EduExp.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\CV\\Forms\\EduExp.cs",
+              "RelativeDocumentMoniker": "CV\\Forms\\EduExp.cs",
+              "ToolTip": "C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\CV\\Forms\\EduExp.cs [Design]",
+              "RelativeToolTip": "CV\\Forms\\EduExp.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T01:07:48.608Z",
+              "EditorCaption": " [Design]"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -32,7 +65,7 @@
               "RelativeDocumentMoniker": "CV\\Clases\\PDF.cs",
               "ToolTip": "C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\CV\\Clases\\PDF.cs",
               "RelativeToolTip": "CV\\Clases\\PDF.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAwwH0AAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowDMAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T04:23:54.893Z",
               "EditorCaption": ""
@@ -45,22 +78,22 @@
               "RelativeDocumentMoniker": "CV\\Forms\\Principal.cs",
               "ToolTip": "C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\CV\\Forms\\Principal.cs",
               "RelativeToolTip": "CV\\Forms\\Principal.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAACoAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAADMAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T04:23:55.175Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Principal.cs [Dise\u00F1o]",
+              "DocumentIndex": 4,
+              "Title": "Principal.cs [Design]",
               "DocumentMoniker": "C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\CV\\Forms\\Principal.cs",
               "RelativeDocumentMoniker": "CV\\Forms\\Principal.cs",
-              "ToolTip": "C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\CV\\Forms\\Principal.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CV\\Forms\\Principal.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\MrLuisKiller\\Documents\\Visual Studio 2022\\Projects\\C#\\CV\\CV\\Forms\\Principal.cs [Design]",
+              "RelativeToolTip": "CV\\Forms\\Principal.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T04:23:55.182Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "EditorCaption": " [Design]"
             }
           ]
         }
